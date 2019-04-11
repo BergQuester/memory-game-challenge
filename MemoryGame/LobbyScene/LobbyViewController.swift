@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol Game {
+    var gameSize: GameSize? { get set }
+}
+
 class LobbyViewController: UIViewController {
 
     enum Segues: String {
@@ -18,10 +22,37 @@ class LobbyViewController: UIViewController {
     }
 }
 
-//MARK: - Lifecycle methods
+//MARK: - Segue management
 extension LobbyViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+        if segue.identifier == Segues.lobbyToGameSegue.rawValue {
+            // make sure we can get all the right info
+            if let sizeSelection = (sender as? UIView)?.tag,
+                let gameMode = GameSize(rawValue: sizeSelection),
+                var destination = segue.destination as? Game {
+
+                destination.gameSize = gameMode
+            }
+        }
+
+        super.prepare(for: segue, sender: sender)
+    }
+
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if identifier == Segues.lobbyToGameSegue.rawValue {
+            if let sizeSelection = (sender as? UIView)?.tag,
+                GameSize(rawValue: sizeSelection) != nil {
+                return true
+            }
+
+            let alert = UIAlertController(title: "Opps", message: "Something went wrong", preferredStyle: .alert)
+            self.present(alert, animated: true)
+
+            return false
+        }
+
+        return super.shouldPerformSegue(withIdentifier: identifier, sender: sender)
     }
 }
 
