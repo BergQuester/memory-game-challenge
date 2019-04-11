@@ -9,10 +9,24 @@ import UIKit
 
 class LobbyViewController: UIViewController {
 
+    enum Segues: String {
+        case lobbyToGameSegue
+    }
+
+    @IBAction func startGame(_ sender: UIButton) {
+        self.performSegue(withIdentifier: Segues.lobbyToGameSegue.rawValue, sender: sender)
+    }
+}
+
+//MARK: - Lifecycle methods
+extension LobbyViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+}
 
+//MARK: - Roatation management methods
+extension LobbyViewController {
     override var shouldAutorotate: Bool {
         return true
     }
