@@ -17,6 +17,7 @@
 		FEC0F9F6225FB88B00D86488 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = FEC0F9BF225FB60900D86488 /* GameScene.sks */; };
 		FEC0F9F7225FB88B00D86488 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC0F9C3225FB60900D86488 /* GameScene.swift */; };
 		FEC0F9F8225FB88B00D86488 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC0F9C5225FB60900D86488 /* GameViewController.swift */; };
+		FEC0F9FB225FC61C00D86488 /* LobbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC0F9FA225FC61B00D86488 /* LobbyViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		FEC0F9DF225FB60C00D86488 /* MemoryGameUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MemoryGameUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEC0F9E3225FB60C00D86488 /* MemoryGameUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGameUITests.swift; sourceTree = "<group>"; };
 		FEC0F9E5225FB60C00D86488 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FEC0F9FA225FC61B00D86488 /* LobbyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LobbyViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 		FEC0F9BC225FB60900D86488 /* MemoryGame */ = {
 			isa = PBXGroup;
 			children = (
+				FEC0F9F9225FB8C900D86488 /* LobbyScene */,
 				FEC0F9F5225FB87E00D86488 /* GameScene */,
 				FEC0F9BD225FB60900D86488 /* AppDelegate.swift */,
 				FEC0F9C1225FB60900D86488 /* Actions.sks */,
@@ -140,6 +143,14 @@
 				FEC0F9C5225FB60900D86488 /* GameViewController.swift */,
 			);
 			path = GameScene;
+			sourceTree = "<group>";
+		};
+		FEC0F9F9225FB8C900D86488 /* LobbyScene */ = {
+			isa = PBXGroup;
+			children = (
+				FEC0F9FA225FC61B00D86488 /* LobbyViewController.swift */,
+			);
+			path = LobbyScene;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -276,6 +287,7 @@
 			files = (
 				FEC0F9F7225FB88B00D86488 /* GameScene.swift in Sources */,
 				FEC0F9F8225FB88B00D86488 /* GameViewController.swift in Sources */,
+				FEC0F9FB225FC61C00D86488 /* LobbyViewController.swift in Sources */,
 				FEC0F9BE225FB60900D86488 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
