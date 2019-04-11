@@ -12,7 +12,6 @@
 		FEC0F9C9225FB60900D86488 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEC0F9C7225FB60900D86488 /* Main.storyboard */; };
 		FEC0F9CB225FB60B00D86488 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FEC0F9CA225FB60B00D86488 /* Assets.xcassets */; };
 		FEC0F9CE225FB60B00D86488 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEC0F9CC225FB60B00D86488 /* LaunchScreen.storyboard */; };
-		FEC0F9D9225FB60C00D86488 /* MemoryGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC0F9D8225FB60C00D86488 /* MemoryGameTests.swift */; };
 		FEC0F9E4225FB60C00D86488 /* MemoryGameUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC0F9E3225FB60C00D86488 /* MemoryGameUITests.swift */; };
 		FEC0F9F6225FB88B00D86488 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = FEC0F9BF225FB60900D86488 /* GameScene.sks */; };
 		FEC0F9F7225FB88B00D86488 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC0F9C3225FB60900D86488 /* GameScene.swift */; };
@@ -20,6 +19,12 @@
 		FEC0F9FB225FC61C00D86488 /* LobbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC0F9FA225FC61B00D86488 /* LobbyViewController.swift */; };
 		FEC0FA02225FD33200D86488 /* GameSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC0FA01225FD33200D86488 /* GameSize.swift */; };
 		FEC0FA04225FD73C00D86488 /* CardType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC0FA03225FD73C00D86488 /* CardType.swift */; };
+		FEC0FA06225FD80D00D86488 /* GameCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC0FA05225FD80D00D86488 /* GameCard.swift */; };
+		FEC0FA08225FD8C200D86488 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC0FA07225FD8C200D86488 /* GameState.swift */; };
+		FEC0FA0A225FEA4800D86488 /* GameSizeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC0FA09225FEA4800D86488 /* GameSizeTests.swift */; };
+		FEC0FA0C225FEBDE00D86488 /* CardTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC0FA0B225FEBDE00D86488 /* CardTypeTests.swift */; };
+		FEC0FA0E225FEE5800D86488 /* GameCardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC0FA0D225FEE5800D86488 /* GameCardTests.swift */; };
+		FEC0FA10225FF19C00D86488 /* GameStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC0FA0F225FF19C00D86488 /* GameStateTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,7 +56,6 @@
 		FEC0F9CD225FB60B00D86488 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FEC0F9CF225FB60B00D86488 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FEC0F9D4225FB60C00D86488 /* MemoryGameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MemoryGameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FEC0F9D8225FB60C00D86488 /* MemoryGameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGameTests.swift; sourceTree = "<group>"; };
 		FEC0F9DA225FB60C00D86488 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FEC0F9DF225FB60C00D86488 /* MemoryGameUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MemoryGameUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEC0F9E3225FB60C00D86488 /* MemoryGameUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGameUITests.swift; sourceTree = "<group>"; };
@@ -59,6 +63,12 @@
 		FEC0F9FA225FC61B00D86488 /* LobbyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LobbyViewController.swift; sourceTree = "<group>"; };
 		FEC0FA01225FD33200D86488 /* GameSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSize.swift; sourceTree = "<group>"; };
 		FEC0FA03225FD73C00D86488 /* CardType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardType.swift; sourceTree = "<group>"; };
+		FEC0FA05225FD80D00D86488 /* GameCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCard.swift; sourceTree = "<group>"; };
+		FEC0FA07225FD8C200D86488 /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
+		FEC0FA09225FEA4800D86488 /* GameSizeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSizeTests.swift; sourceTree = "<group>"; };
+		FEC0FA0B225FEBDE00D86488 /* CardTypeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTypeTests.swift; sourceTree = "<group>"; };
+		FEC0FA0D225FEE5800D86488 /* GameCardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCardTests.swift; sourceTree = "<group>"; };
+		FEC0FA0F225FF19C00D86488 /* GameStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStateTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,8 +135,11 @@
 		FEC0F9D7225FB60C00D86488 /* MemoryGameTests */ = {
 			isa = PBXGroup;
 			children = (
-				FEC0F9D8225FB60C00D86488 /* MemoryGameTests.swift */,
 				FEC0F9DA225FB60C00D86488 /* Info.plist */,
+				FEC0FA09225FEA4800D86488 /* GameSizeTests.swift */,
+				FEC0FA0B225FEBDE00D86488 /* CardTypeTests.swift */,
+				FEC0FA0D225FEE5800D86488 /* GameCardTests.swift */,
+				FEC0FA0F225FF19C00D86488 /* GameStateTests.swift */,
 			);
 			path = MemoryGameTests;
 			sourceTree = "<group>";
@@ -163,6 +176,8 @@
 			children = (
 				FEC0FA01225FD33200D86488 /* GameSize.swift */,
 				FEC0FA03225FD73C00D86488 /* CardType.swift */,
+				FEC0FA05225FD80D00D86488 /* GameCard.swift */,
+				FEC0FA07225FD8C200D86488 /* GameState.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -237,6 +252,7 @@
 					};
 					FEC0F9D3225FB60C00D86488 = {
 						CreatedOnToolsVersion = 10.2;
+						LastSwiftMigration = 1020;
 						TestTargetID = FEC0F9B9225FB60900D86488;
 					};
 					FEC0F9DE225FB60C00D86488 = {
@@ -304,6 +320,8 @@
 				FEC0F9F8225FB88B00D86488 /* GameViewController.swift in Sources */,
 				FEC0F9FB225FC61C00D86488 /* LobbyViewController.swift in Sources */,
 				FEC0F9BE225FB60900D86488 /* AppDelegate.swift in Sources */,
+				FEC0FA08225FD8C200D86488 /* GameState.swift in Sources */,
+				FEC0FA06225FD80D00D86488 /* GameCard.swift in Sources */,
 				FEC0FA04225FD73C00D86488 /* CardType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -312,7 +330,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FEC0F9D9225FB60C00D86488 /* MemoryGameTests.swift in Sources */,
+				FEC0FA0A225FEA4800D86488 /* GameSizeTests.swift in Sources */,
+				FEC0FA10225FF19C00D86488 /* GameStateTests.swift in Sources */,
+				FEC0FA0E225FEE5800D86488 /* GameCardTests.swift in Sources */,
+				FEC0FA0C225FEBDE00D86488 /* CardTypeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -516,6 +537,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7LSUEYG3GC;
 				INFOPLIST_FILE = MemoryGameTests/Info.plist;
@@ -526,6 +548,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.daniel.bergquist.MemoryGameTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MemoryGame.app/MemoryGame";
@@ -537,6 +560,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7LSUEYG3GC;
 				INFOPLIST_FILE = MemoryGameTests/Info.plist;

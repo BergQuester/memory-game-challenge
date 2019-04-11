@@ -11,7 +11,19 @@ import GameplayKit
 
 class GameViewController: UIViewController, Game {
 
-    var gameSize: GameSize?
+    var gameState: GameState?
+    var gameSize: GameSize? {
+        set {
+            guard let newSize = newValue else {
+                self.gameState = nil
+                return
+            }
+            self.gameState = GameState(gameSize: newSize)
+        }
+        get {
+            return self.gameState?.gameSize
+        }
+    }
 
 
     override func viewDidLoad() {
