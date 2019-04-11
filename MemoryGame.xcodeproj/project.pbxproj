@@ -8,15 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		FEC0F9BE225FB60900D86488 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC0F9BD225FB60900D86488 /* AppDelegate.swift */; };
-		FEC0F9C0225FB60900D86488 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = FEC0F9BF225FB60900D86488 /* GameScene.sks */; };
 		FEC0F9C2225FB60900D86488 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = FEC0F9C1225FB60900D86488 /* Actions.sks */; };
-		FEC0F9C4225FB60900D86488 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC0F9C3225FB60900D86488 /* GameScene.swift */; };
-		FEC0F9C6225FB60900D86488 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC0F9C5225FB60900D86488 /* GameViewController.swift */; };
 		FEC0F9C9225FB60900D86488 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEC0F9C7225FB60900D86488 /* Main.storyboard */; };
 		FEC0F9CB225FB60B00D86488 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FEC0F9CA225FB60B00D86488 /* Assets.xcassets */; };
 		FEC0F9CE225FB60B00D86488 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEC0F9CC225FB60B00D86488 /* LaunchScreen.storyboard */; };
 		FEC0F9D9225FB60C00D86488 /* MemoryGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC0F9D8225FB60C00D86488 /* MemoryGameTests.swift */; };
 		FEC0F9E4225FB60C00D86488 /* MemoryGameUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC0F9E3225FB60C00D86488 /* MemoryGameUITests.swift */; };
+		FEC0F9F6225FB88B00D86488 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = FEC0F9BF225FB60900D86488 /* GameScene.sks */; };
+		FEC0F9F7225FB88B00D86488 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC0F9C3225FB60900D86488 /* GameScene.swift */; };
+		FEC0F9F8225FB88B00D86488 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC0F9C5225FB60900D86488 /* GameViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,11 +103,9 @@
 		FEC0F9BC225FB60900D86488 /* MemoryGame */ = {
 			isa = PBXGroup;
 			children = (
+				FEC0F9F5225FB87E00D86488 /* GameScene */,
 				FEC0F9BD225FB60900D86488 /* AppDelegate.swift */,
-				FEC0F9BF225FB60900D86488 /* GameScene.sks */,
 				FEC0F9C1225FB60900D86488 /* Actions.sks */,
-				FEC0F9C3225FB60900D86488 /* GameScene.swift */,
-				FEC0F9C5225FB60900D86488 /* GameViewController.swift */,
 				FEC0F9C7225FB60900D86488 /* Main.storyboard */,
 				FEC0F9CA225FB60B00D86488 /* Assets.xcassets */,
 				FEC0F9CC225FB60B00D86488 /* LaunchScreen.storyboard */,
@@ -132,6 +130,16 @@
 				FEC0F9E5225FB60C00D86488 /* Info.plist */,
 			);
 			path = MemoryGameUITests;
+			sourceTree = "<group>";
+		};
+		FEC0F9F5225FB87E00D86488 /* GameScene */ = {
+			isa = PBXGroup;
+			children = (
+				FEC0F9BF225FB60900D86488 /* GameScene.sks */,
+				FEC0F9C3225FB60900D86488 /* GameScene.swift */,
+				FEC0F9C5225FB60900D86488 /* GameViewController.swift */,
+			);
+			path = GameScene;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -238,7 +246,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FEC0F9C9225FB60900D86488 /* Main.storyboard in Resources */,
-				FEC0F9C0225FB60900D86488 /* GameScene.sks in Resources */,
+				FEC0F9F6225FB88B00D86488 /* GameScene.sks in Resources */,
 				FEC0F9CB225FB60B00D86488 /* Assets.xcassets in Resources */,
 				FEC0F9CE225FB60B00D86488 /* LaunchScreen.storyboard in Resources */,
 				FEC0F9C2225FB60900D86488 /* Actions.sks in Resources */,
@@ -266,8 +274,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FEC0F9C4225FB60900D86488 /* GameScene.swift in Sources */,
-				FEC0F9C6225FB60900D86488 /* GameViewController.swift in Sources */,
+				FEC0F9F7225FB88B00D86488 /* GameScene.swift in Sources */,
+				FEC0F9F8225FB88B00D86488 /* GameViewController.swift in Sources */,
 				FEC0F9BE225FB60900D86488 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
