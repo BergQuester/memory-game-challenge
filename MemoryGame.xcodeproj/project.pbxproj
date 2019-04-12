@@ -25,6 +25,7 @@
 		FEC0FA0C225FEBDE00D86488 /* CardTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC0FA0B225FEBDE00D86488 /* CardTypeTests.swift */; };
 		FEC0FA0E225FEE5800D86488 /* GameCardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC0FA0D225FEE5800D86488 /* GameCardTests.swift */; };
 		FEC0FA10225FF19C00D86488 /* GameStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC0FA0F225FF19C00D86488 /* GameStateTests.swift */; };
+		FEC0FA132260E36300D86488 /* CardNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC0FA122260E36300D86488 /* CardNode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		FEC0FA0B225FEBDE00D86488 /* CardTypeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTypeTests.swift; sourceTree = "<group>"; };
 		FEC0FA0D225FEE5800D86488 /* GameCardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCardTests.swift; sourceTree = "<group>"; };
 		FEC0FA0F225FF19C00D86488 /* GameStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStateTests.swift; sourceTree = "<group>"; };
+		FEC0FA122260E36300D86488 /* CardNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardNode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 		FEC0F9BC225FB60900D86488 /* MemoryGame */ = {
 			isa = PBXGroup;
 			children = (
+				FEC0FA112260E34F00D86488 /* SpriteKitNodes */,
 				FEC0FA00225FD2F000D86488 /* Models */,
 				FEC0F9F9225FB8C900D86488 /* LobbyScene */,
 				FEC0F9F5225FB87E00D86488 /* GameScene */,
@@ -180,6 +183,14 @@
 				FEC0FA07225FD8C200D86488 /* GameState.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		FEC0FA112260E34F00D86488 /* SpriteKitNodes */ = {
+			isa = PBXGroup;
+			children = (
+				FEC0FA122260E36300D86488 /* CardNode.swift */,
+			);
+			path = SpriteKitNodes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -316,6 +327,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FEC0F9F7225FB88B00D86488 /* GameScene.swift in Sources */,
+				FEC0FA132260E36300D86488 /* CardNode.swift in Sources */,
 				FEC0FA02225FD33200D86488 /* GameSize.swift in Sources */,
 				FEC0F9F8225FB88B00D86488 /* GameViewController.swift in Sources */,
 				FEC0F9FB225FC61C00D86488 /* LobbyViewController.swift in Sources */,
