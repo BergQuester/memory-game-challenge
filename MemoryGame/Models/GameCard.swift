@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SpriteKit
 
 struct GameCard {
     let cardType: CardType  // What card this is
@@ -42,3 +43,18 @@ extension GameCard {
     }
 }
 
+
+//Mark: - Graphics access
+extension GameCard {
+    static func backTexture() -> SKTexture {
+        return SKTexture(imageNamed: "allCardBacks")
+    }
+
+    func backTexture() -> SKTexture {
+        return GameCard.backTexture()
+    }
+
+    func faceTexture() -> SKTexture {
+        return self.cardType.faceTexture()
+    }
+}
