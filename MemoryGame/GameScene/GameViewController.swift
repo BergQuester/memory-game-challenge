@@ -24,6 +24,8 @@ class GameViewController: UIViewController, Game {
             return self.gameState?.gameSize
         }
     }
+
+    let playField = PlayFieldNode()
 }
 
 //MARK: - ViewController lifecycle
@@ -61,7 +63,7 @@ extension GameViewController: GameSceneDelegate {
         }
 
         var cardNodes: [CardNode] = []
-        let playFieldNode = PlayFieldNode()
+        self.playField.gameSize = self.gameState?.gameSize
 
         for (index, card) in gameState.deck.enumerated() {
             let indexPath = gameState.cardIndexPath(forArrayIndex: index)
@@ -69,16 +71,17 @@ extension GameViewController: GameSceneDelegate {
 
             cardNodes.append(cardNode)
 
-            playFieldNode.addChild(cardNode)
+            self.playField.addCard(cardNode)
         }
 
-        playFieldNode.position = CGPoint(x: 0, y: -35)
-        gameScene.addChild(playFieldNode)
-        playFieldNode.layout(cards: cardNodes, gameSize: gameState.gameSize)
+        self.playField.position = CGPoint(x: 0, y: -35)
+        gameScene.addChild(self.playField)
+        self.playField.layout()
     }
 
     func gameScene(_ gameScene: GameScene, didTapCard card: CardNode) {
         guard var cardModel = self.gameState?.card(forIndexPath: card.cardIndex),
+            let gameState = self.gameState,
             cardModel.isFaceUp == false else {
             return
         }
@@ -86,6 +89,40 @@ extension GameViewController: GameSceneDelegate {
         cardModel.isFaceUp.toggle()
         self.gameState?.update(card: cardModel, atIndex: card.cardIndex)
         card.update(withState: cardModel)
+
+        if let attemptedPairIndex = gameState.attemptedPairIndex,
+            var attemptedPair = gameState.card(forIndexPath: attemptedPairIndex) {
+
+            if attemptedPair.cardType == cardModel.cardType {
+                self.gameState?.matchedCardTypes.append(cardModel.cardType)
+            } else {
+                let waitAction = SKAction.wait(forDuration: 1.0)
+                let flipAction = SKAction.run { [weak self] in
+                    guard let strongSelf = self,
+                        let gameState = strongSelf.gameState else {
+                        return
+                    }
+
+                    strongSelf.playField.cards.forEach { card in
+                        guard var cardModel = gameState.card(forIndexPath: card.cardIndex) else {
+                            return
+                        }
+
+                        if cardModel.isFaceUp && !gameState.matchedCardTypes.contains(cardModel.cardType) {
+                            cardModel.isFaceUp.toggle()
+                            strongSelf.gameState?.update(card: cardModel, atIndex: card.cardIndex)
+                            card.update(withState: cardModel)
+                        }
+                    }
+                }
+
+                self.playField.run(SKAction.sequence([waitAction, flipAction]))
+            }
+
+            self.gameState?.attemptedPairIndex = nil
+        } else {
+            self.gameState?.attemptedPairIndex = card.cardIndex
+        }
     }
 }
 

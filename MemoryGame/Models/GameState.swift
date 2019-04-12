@@ -11,6 +11,7 @@ struct GameState {
     let gameSize: GameSize
     var deck: [GameCard]
     var matchedCardTypes: [CardType] = []
+    var attemptedPairIndex: IndexPath?    // Index of the previously selected card in the attempted pair
 }
 
 //MARK: - Convienence initializers

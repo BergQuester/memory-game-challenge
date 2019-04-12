@@ -16,7 +16,19 @@ class PlayFieldNode: SKSpriteNode {
     static let spacingRatio: CGFloat = 0.1
 
     var cards: [CardNode] = []
+    var gameSize: GameSize?
 
+    func addCard(_ card: CardNode) {
+        self.addChild(card)
+        self.cards.append(card)
+    }
+
+    func layout() {
+        guard let gameSize = self.gameSize else {
+            return
+        }
+        self.layout(cards: self.cards, gameSize: gameSize)
+    }
     func layout(cards: [CardNode], gameSize: GameSize) {
 
         guard let scene = self.scene else {
