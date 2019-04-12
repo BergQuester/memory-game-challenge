@@ -26,6 +26,7 @@
 		FEC0FA0E225FEE5800D86488 /* GameCardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC0FA0D225FEE5800D86488 /* GameCardTests.swift */; };
 		FEC0FA10225FF19C00D86488 /* GameStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC0FA0F225FF19C00D86488 /* GameStateTests.swift */; };
 		FEC0FA132260E36300D86488 /* CardNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC0FA122260E36300D86488 /* CardNode.swift */; };
+		FEC0FA1522611DA200D86488 /* PlayFieldNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC0FA1422611DA200D86488 /* PlayFieldNode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		FEC0FA0D225FEE5800D86488 /* GameCardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCardTests.swift; sourceTree = "<group>"; };
 		FEC0FA0F225FF19C00D86488 /* GameStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStateTests.swift; sourceTree = "<group>"; };
 		FEC0FA122260E36300D86488 /* CardNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardNode.swift; sourceTree = "<group>"; };
+		FEC0FA1422611DA200D86488 /* PlayFieldNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayFieldNode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				FEC0FA122260E36300D86488 /* CardNode.swift */,
+				FEC0FA1422611DA200D86488 /* PlayFieldNode.swift */,
 			);
 			path = SpriteKitNodes;
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 				FEC0FA132260E36300D86488 /* CardNode.swift in Sources */,
 				FEC0FA02225FD33200D86488 /* GameSize.swift in Sources */,
 				FEC0F9F8225FB88B00D86488 /* GameViewController.swift in Sources */,
+				FEC0FA1522611DA200D86488 /* PlayFieldNode.swift in Sources */,
 				FEC0F9FB225FC61C00D86488 /* LobbyViewController.swift in Sources */,
 				FEC0F9BE225FB60900D86488 /* AppDelegate.swift in Sources */,
 				FEC0FA08225FD8C200D86488 /* GameState.swift in Sources */,

@@ -8,15 +8,29 @@
 import SpriteKit
 import GameplayKit
 
+protocol GameSceneDelegate {
+    func gameScene(_ gameScene: GameScene, didMoveToView view: SKView)
+    func gameScene(_ gameScene: GameScene, didTapCard card: CardNode)
+}
+
 class GameScene: SKScene {
+
+    var gameDelegate: GameSceneDelegate?
     
     override func didMove(to view: SKView) {
-        
-        let card = CardNode(withState: GameCard(withCardType: .bat))
-        card.position = CGPoint(x: 50, y: 100)
-        self.addChild(card)
+
+        self.gameDelegate?.gameScene(self, didMoveToView: view)
     }
-    
+
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+
+        // Figure out if any of the touches tapped a card
+        // and notify the gameDelegate
+        touches
+            .map { $0.location(in: self) }
+            .compactMap { self.atPoint($0) as? CardNode }
+            .forEach { self.gameDelegate?.gameScene(self, didTapCard: $0) }
+    }
     
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered

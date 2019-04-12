@@ -45,4 +45,17 @@ extension GameSize {
     func numberOfCards() -> Int {
         return self.numberOfColumns() * self.numberOfRows()
     }
+
+    func cardIndexPath(forArrayIndex arrayIndex: Int) -> IndexPath {
+        let column = arrayIndex / self.numberOfRows()
+        let row = arrayIndex % self.numberOfRows()
+
+        return IndexPath(row: row, section: column)
+    }
+
+    func arrayIndex(forCardIndexPath index: IndexPath) -> Int {
+        let columnOffset = index.section * self.numberOfRows()
+        let cardIndex = columnOffset + index.row
+        return cardIndex
+    }
 }

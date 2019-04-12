@@ -33,7 +33,10 @@ extension GameViewController {
 
         if let view = self.view as! SKView? {
             // Load the SKScene from 'GameScene.sks'
-            if let scene = SKScene(fileNamed: "GameScene") {
+            if let scene = SKScene(fileNamed: "GameScene") as? GameScene {
+
+                scene.gameDelegate = self
+
                 // Set the scale mode to scale to fit the window
                 scene.scaleMode = .aspectFill
 
@@ -47,6 +50,56 @@ extension GameViewController {
             view.showsNodeCount = true
         }
     }
+}
+
+//MARK: - Game logic
+extension GameViewController: GameSceneDelegate {
+
+    func gameScene(_ gameScene: GameScene, didMoveToView view: SKView) {
+        guard let gameState = self.gameState else {
+            return
+        }
+
+        var cardNodes: [CardNode] = []
+        let playFieldNode = PlayFieldNode()
+
+        for (index, card) in gameState.deck.enumerated() {
+            let indexPath = gameState.cardIndexPath(forArrayIndex: index)
+            let cardNode = CardNode(withState: card, andIndex: indexPath)
+
+            cardNodes.append(cardNode)
+
+            playFieldNode.addChild(cardNode)
+        }
+
+        gameScene.addChild(playFieldNode)
+        playFieldNode.layout(cards: cardNodes, gameSize: gameState.gameSize)
+    }
+
+    func gameScene(_ gameScene: GameScene, didTapCard card: CardNode) {
+        guard var cardModel = self.gameState?.card(forIndexPath: card.cardIndex),
+            cardModel.isFaceUp == false else {
+            return
+        }
+
+        cardModel.isFaceUp.toggle()
+        self.gameState?.update(card: cardModel, atIndex: card.cardIndex)
+        card.update(withState: cardModel)
+    }
+
+
+    // TODO:
+    // * Figure out how much screen space we have
+    // * Figure out how big the cards should be (with a max size: 147x211)
+    //      * Probably use a % of height and width, take the smaller and keep ratio
+    // * Figure out spacing
+    // * Generate layout
+
+//    let card = CardNode(withState: GameCard(withCardType: .bat))
+//    card.position = CGPoint(x: 50, y: 100)
+//    self.addChild(card)
+
+
 }
 
 //MARK: - Roatation management methods

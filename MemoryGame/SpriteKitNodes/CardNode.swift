@@ -8,14 +8,22 @@
 import SpriteKit
 
 class CardNode: SKSpriteNode {
-    var state: GameCard
+    var cardIndex: IndexPath
 
-    init(withState initialState: GameCard) {
-        self.state = initialState
+    init(withState initialState: GameCard, andIndex cardIndex: IndexPath) {
+        self.cardIndex = cardIndex
 
         let backTexture = initialState.backTexture()
 
         super.init(texture: backTexture, color: .clear, size: backTexture.size())
+    }
+
+    func update(withState newState: GameCard) {
+        if newState.isFaceUp {
+            self.texture = newState.faceTexture()
+        } else {
+            self.texture = newState.backTexture()
+        }
     }
 
     required init?(coder aDecoder: NSCoder) {
