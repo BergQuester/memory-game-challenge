@@ -72,6 +72,7 @@ extension GameViewController: GameSceneDelegate {
             playFieldNode.addChild(cardNode)
         }
 
+        playFieldNode.position = CGPoint(x: 0, y: -35)
         gameScene.addChild(playFieldNode)
         playFieldNode.layout(cards: cardNodes, gameSize: gameState.gameSize)
     }
@@ -86,23 +87,9 @@ extension GameViewController: GameSceneDelegate {
         self.gameState?.update(card: cardModel, atIndex: card.cardIndex)
         card.update(withState: cardModel)
     }
-
-
-    // TODO:
-    // * Figure out how much screen space we have
-    // * Figure out how big the cards should be (with a max size: 147x211)
-    //      * Probably use a % of height and width, take the smaller and keep ratio
-    // * Figure out spacing
-    // * Generate layout
-
-//    let card = CardNode(withState: GameCard(withCardType: .bat))
-//    card.position = CGPoint(x: 50, y: 100)
-//    self.addChild(card)
-
-
 }
 
-//MARK: - Roatation management methods
+//MARK: - Rotation management methods
 extension GameViewController {
     override var shouldAutorotate: Bool {
         return true

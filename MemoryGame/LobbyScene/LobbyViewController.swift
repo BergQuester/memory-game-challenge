@@ -54,6 +54,8 @@ extension LobbyViewController {
 
         return super.shouldPerformSegue(withIdentifier: identifier, sender: sender)
     }
+
+    @IBAction func unwindToLobby(segue: UIStoryboardSegue) { }
 }
 
 //MARK: - Roatation management methods

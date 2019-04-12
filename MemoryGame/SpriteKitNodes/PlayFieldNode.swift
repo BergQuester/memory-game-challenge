@@ -7,6 +7,10 @@
 
 import SpriteKit
 
+// TODO:
+// * Figure out how big the cards should be (with a max size: 147x211)
+//      * Probably use a % of height and width, take the smaller and keep ratio
+
 class PlayFieldNode: SKSpriteNode {
     static let marginRatio: CGFloat = 0.1
     static let spacingRatio: CGFloat = 0.1
