@@ -26,6 +26,7 @@ class GameViewController: UIViewController, Game {
     }
 
     let playField = PlayFieldNode()
+    @IBOutlet var scoreLabel: UILabel!
 }
 
 //MARK: - ViewController lifecycle
@@ -51,6 +52,8 @@ extension GameViewController {
             view.showsFPS = true
             view.showsNodeCount = true
         }
+
+        self.updateScoreLabel()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -108,6 +111,7 @@ extension GameViewController: GameSceneDelegate {
             // Otherwise, reset the unmatched cards in the deck
             if attemptedPair.cardType == cardModel.cardType {
                 self.gameState?.matchedCardTypes.append(cardModel.cardType)
+                self.updateScoreLabel()
                 AudioPlayer.shared.play(soundNamed: "matchFound")
             } else {
 
@@ -146,6 +150,17 @@ extension GameViewController: GameSceneDelegate {
         }
 
         return resetDeck
+    }
+
+    func updateScoreLabel() {
+        guard let gameState = self.gameState else {
+            self.scoreLabel.text = ""
+            return
+        }
+        let totalMatchesHidden = gameState.gameSize.numberOfCards() / 2
+        let totalMatchesFound = gameState.matchedCardTypes.count
+
+        self.scoreLabel.text = "\(totalMatchesFound)/\(totalMatchesHidden) Matches"
     }
 }
 
