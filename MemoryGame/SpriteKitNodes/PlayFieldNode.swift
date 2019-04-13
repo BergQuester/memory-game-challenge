@@ -67,21 +67,22 @@ extension PlayFieldNode {
 //MARK: - Card layout
 extension PlayFieldNode {
 
-    func layout() {
+    func layout(withSceneSize sceneSize: CGSize? = nil) {
         guard let gameSize = self.gameSize else {
             return
         }
         self.layout(cards: self.cards, gameSize: gameSize)
     }
 
-    func layout(cards: [CardNode], gameSize: GameSize) {
+    func layout(cards: [CardNode], gameSize: GameSize, withSceneSize sceneSize: CGSize? = nil) {
 
-        guard let scene = self.scene else {
+        let viewSize = sceneSize ?? self.scene?.size
+        guard let sceneSize = viewSize else {
             return
         }
 
         // Compute the largest sizes we can use
-        let maxPlayFieldSize = PlayFieldNode.maxPlayFieldSize(fromSreenSize: scene.size)
+        let maxPlayFieldSize = PlayFieldNode.maxPlayFieldSize(fromSreenSize: sceneSize)
         let maxCardSize = GameCard.backTexture().size()
         let suggestedCardSize = PlayFieldNode.suggestedCardSize(fromPlayFieldSize: maxPlayFieldSize, andGameSize: gameSize)
 

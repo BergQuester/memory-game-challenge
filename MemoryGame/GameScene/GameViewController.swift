@@ -77,6 +77,8 @@ extension GameViewController: GameSceneDelegate {
 
         self.playField.position = CGPoint(x: 0, y: -35)
         gameScene.addChild(self.playField)
+
+        self.playField.scene?.size = self.view.frame.size
         self.playField.layout()
     }
 
@@ -158,6 +160,17 @@ extension GameViewController {
 
     override var prefersStatusBarHidden: Bool {
         return true
+    }
+
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        coordinator.animate(alongsideTransition: { [weak self] _ in
+            guard let strongSelf = self else {
+                return
+            }
+
+            strongSelf.playField.scene?.size = size
+            strongSelf.playField.layout()
+        })
     }
 }
 
