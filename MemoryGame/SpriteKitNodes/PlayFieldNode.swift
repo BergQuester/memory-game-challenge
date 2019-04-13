@@ -33,7 +33,9 @@ extension PlayFieldNode {
         self.scene?.view?.isUserInteractionEnabled = false
 
         // delay the flips
-        let waitAction = SKAction.wait(forDuration: 1.0)
+        let duration = 1.0 + CardNode.flipAnimationDuration // This way the card flip animation
+                                                            // doesn't count twoards our 1 second show time
+        let waitAction = SKAction.wait(forDuration: duration)
 
         // Run action that performs the flips and re-enables user interaction
         let flipAction = SKAction.run { [weak self] in
