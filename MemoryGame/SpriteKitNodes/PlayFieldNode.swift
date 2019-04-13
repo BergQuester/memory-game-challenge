@@ -6,6 +6,7 @@
 //
 
 import SpriteKit
+import AVKit    // This may seem strage, but this contains an asepct fit method for CGRect
 
 // TODO:
 // * Figure out how big the cards should be (with a max size: 147x211)
@@ -79,23 +80,26 @@ extension PlayFieldNode {
             return
         }
 
+        // Compute the largest sizes we can use
         let maxPlayFieldSize = PlayFieldNode.maxPlayFieldSize(fromSreenSize: scene.size)
-
-        self.size = maxPlayFieldSize
         let maxCardSize = GameCard.backTexture().size()
+        let suggestedCardSize = PlayFieldNode.suggestedCardSize(fromPlayFieldSize: maxPlayFieldSize, andGameSize: gameSize)
 
-        let cardSize = PlayFieldNode.suggestedCardSize(fromPlayFieldSize: self.size, andGameSize: gameSize)
+        // compute the final sizes
+        let cardSize = AVMakeRect(aspectRatio: maxCardSize, insideRect: CGRect(origin: .zero, size: suggestedCardSize)).size
+        self.size = PlayFieldNode.finalPlayfieldSize(withCardSize: cardSize, gameSize: gameSize)
 
+        // layout cards
         for (index, card) in cards.enumerated() {
             let cardIndex = gameSize.cardIndexPath(forArrayIndex: index)
 
             card.size = cardSize
-            card.position = CGPoint(x: cardSize.width * (CGFloat(cardIndex.section) * (1 + PlayFieldNode.spacingRatio) + 0.5) - 0.5 * maxPlayFieldSize.width,
-                                    y: cardSize.height * (CGFloat(cardIndex.row) * (1 + PlayFieldNode.spacingRatio) + 0.5) - 0.5 * maxPlayFieldSize.height)
+            card.position = CGPoint(x: cardSize.width * (CGFloat(cardIndex.section) * (1 + PlayFieldNode.spacingRatio) + 0.5) - 0.5 * self.size.width,
+                                    y: cardSize.height * (CGFloat(cardIndex.row) * (1 + PlayFieldNode.spacingRatio) + 0.5) - 0.5 * self.size.height)
         }
     }
 
-    // computes the playfield size from margins
+    // computes the max playfield size from margins
     private static func maxPlayFieldSize(fromSreenSize screenSize: CGSize) -> CGSize {
         return CGSize(width: screenSize.width - (screenSize.width * 2 * marginRatio),
                       height: screenSize.height - (screenSize.height * 2 * marginRatio))
@@ -119,5 +123,14 @@ extension PlayFieldNode {
         let numberOfCardsFloat = CGFloat(numberOfCards)
         let cardDimension = playFieldDimension / (numberOfCardsFloat + spacingRatio * numberOfCardsFloat - spacingRatio)
         return cardDimension
+    }
+
+    private static func finalPlayfieldSize(withCardSize cardSize: CGSize, gameSize: GameSize) -> CGSize {
+        let numberOfColumns = CGFloat(gameSize.numberOfColumns())
+        let numberOfRows = CGFloat(gameSize.numberOfRows())
+        let size = CGSize(width: cardSize.width * (numberOfColumns + (numberOfColumns - 1) * spacingRatio),
+                          height: cardSize.height * (numberOfRows + (numberOfRows - 1) * spacingRatio))
+
+        return size
     }
 }
