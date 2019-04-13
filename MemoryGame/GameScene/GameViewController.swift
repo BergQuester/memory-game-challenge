@@ -52,6 +52,10 @@ extension GameViewController {
             view.showsNodeCount = true
         }
     }
+
+    override func viewDidAppear(_ animated: Bool) {
+        AudioPlayer.shared.play(soundNamed: "gameInstructions")
+    }
 }
 
 //MARK: - Game logic
@@ -104,6 +108,7 @@ extension GameViewController: GameSceneDelegate {
             // Otherwise, reset the unmatched cards in the deck
             if attemptedPair.cardType == cardModel.cardType {
                 self.gameState?.matchedCardTypes.append(cardModel.cardType)
+                AudioPlayer.shared.play(soundNamed: "matchFound")
             } else {
 
                 if let gameState = self.gameState {

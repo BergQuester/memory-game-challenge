@@ -22,6 +22,13 @@ class LobbyViewController: UIViewController {
     }
 }
 
+//MARK: - View lifecycle
+extension LobbyViewController {
+    override func viewDidAppear(_ animated: Bool) {
+        AudioPlayer.shared.play(soundNamed: "lobbyInstructions")
+    }
+}
+
 //MARK: - Segue management
 extension LobbyViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

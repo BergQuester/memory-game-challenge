@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FE63BFF922627F7D003CBE23 /* lobbyInstructions.m4a in Resources */ = {isa = PBXBuildFile; fileRef = FE63BFF622627F7D003CBE23 /* lobbyInstructions.m4a */; };
+		FE63BFFA22627F7D003CBE23 /* matchFound.m4a in Resources */ = {isa = PBXBuildFile; fileRef = FE63BFF722627F7D003CBE23 /* matchFound.m4a */; };
+		FE63BFFB22627F7D003CBE23 /* gameInstructions.m4a in Resources */ = {isa = PBXBuildFile; fileRef = FE63BFF822627F7D003CBE23 /* gameInstructions.m4a */; };
+		FE63BFFD22627FE7003CBE23 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE63BFFC22627FE7003CBE23 /* AudioPlayer.swift */; };
 		FEC0F9BE225FB60900D86488 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC0F9BD225FB60900D86488 /* AppDelegate.swift */; };
 		FEC0F9C2225FB60900D86488 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = FEC0F9C1225FB60900D86488 /* Actions.sks */; };
 		FEC0F9C9225FB60900D86488 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEC0F9C7225FB60900D86488 /* Main.storyboard */; };
@@ -47,6 +51,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FE63BFF622627F7D003CBE23 /* lobbyInstructions.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = lobbyInstructions.m4a; sourceTree = "<group>"; };
+		FE63BFF722627F7D003CBE23 /* matchFound.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = matchFound.m4a; sourceTree = "<group>"; };
+		FE63BFF822627F7D003CBE23 /* gameInstructions.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = gameInstructions.m4a; sourceTree = "<group>"; };
+		FE63BFFC22627FE7003CBE23 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		FEC0F9BA225FB60900D86488 /* MemoryGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemoryGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEC0F9BD225FB60900D86488 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FEC0F9BF225FB60900D86488 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -100,6 +108,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FE63BFF522627F1C003CBE23 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				FE63BFF822627F7D003CBE23 /* gameInstructions.m4a */,
+				FE63BFF622627F7D003CBE23 /* lobbyInstructions.m4a */,
+				FE63BFF722627F7D003CBE23 /* matchFound.m4a */,
+				FE63BFFC22627FE7003CBE23 /* AudioPlayer.swift */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
 		FEC0F9B1225FB60900D86488 = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +142,7 @@
 		FEC0F9BC225FB60900D86488 /* MemoryGame */ = {
 			isa = PBXGroup;
 			children = (
+				FE63BFF522627F1C003CBE23 /* Audio */,
 				FEC0FA112260E34F00D86488 /* SpriteKitNodes */,
 				FEC0FA00225FD2F000D86488 /* Models */,
 				FEC0F9F9225FB8C900D86488 /* LobbyScene */,
@@ -300,11 +320,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE63BFF922627F7D003CBE23 /* lobbyInstructions.m4a in Resources */,
 				FEC0F9C9225FB60900D86488 /* Main.storyboard in Resources */,
 				FEC0F9F6225FB88B00D86488 /* GameScene.sks in Resources */,
+				FE63BFFB22627F7D003CBE23 /* gameInstructions.m4a in Resources */,
 				FEC0F9CB225FB60B00D86488 /* Assets.xcassets in Resources */,
 				FEC0F9CE225FB60B00D86488 /* LaunchScreen.storyboard in Resources */,
 				FEC0F9C2225FB60900D86488 /* Actions.sks in Resources */,
+				FE63BFFA22627F7D003CBE23 /* matchFound.m4a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,6 +354,7 @@
 			files = (
 				FEC0F9F7225FB88B00D86488 /* GameScene.swift in Sources */,
 				FEC0FA132260E36300D86488 /* CardNode.swift in Sources */,
+				FE63BFFD22627FE7003CBE23 /* AudioPlayer.swift in Sources */,
 				FEC0FA02225FD33200D86488 /* GameSize.swift in Sources */,
 				FEC0F9F8225FB88B00D86488 /* GameViewController.swift in Sources */,
 				FEC0FA1522611DA200D86488 /* PlayFieldNode.swift in Sources */,
