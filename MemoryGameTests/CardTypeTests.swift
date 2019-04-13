@@ -6,6 +6,7 @@
 //
 
 import XCTest
+import SpriteKit
 @testable import MemoryGame
 
 class CardTypeTests: XCTestCase {

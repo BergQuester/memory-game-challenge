@@ -27,7 +27,7 @@ extension GameState {
     func card(forIndexPath index: IndexPath) -> GameCard? {
         let cardIndex = self.arrayIndex(forCardIndexPath: index)
 
-        guard cardIndex <= self.deck.count else {
+        guard cardIndex < self.deck.count else {
             return nil
         }
         
@@ -37,7 +37,7 @@ extension GameState {
     mutating func update(card: GameCard, atIndex index: IndexPath) {
         let cardIndex = self.arrayIndex(forCardIndexPath: index)
 
-        guard cardIndex <= self.deck.count else {
+        guard cardIndex < self.deck.count else {
             return
         }
 

@@ -44,7 +44,7 @@ extension GameCard {
 }
 
 
-//Mark: - Graphics access
+//MARK: - Graphics access
 extension GameCard {
     static func backTexture() -> SKTexture {
         return SKTexture(imageNamed: "allCardBacks")
@@ -56,5 +56,12 @@ extension GameCard {
 
     func faceTexture() -> SKTexture {
         return self.cardType.faceTexture()
+    }
+}
+
+//MARK: - Equatable
+extension GameCard: Equatable {
+    static func == (lhs: GameCard, rhs: GameCard) -> Bool {
+        return lhs.cardType == rhs.cardType && lhs.isFaceUp == rhs.isFaceUp
     }
 }
