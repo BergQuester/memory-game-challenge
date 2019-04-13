@@ -22,6 +22,49 @@ class PlayFieldNode: SKSpriteNode {
         self.addChild(card)
         self.cards.append(card)
     }
+}
+
+//MARK: - Card state
+extension PlayFieldNode {
+    func prepareResetActions(withGameState gameState: GameState) {
+
+        // disable user interaction
+        self.scene?.view?.isUserInteractionEnabled = false
+
+        // delay the flips
+        let waitAction = SKAction.wait(forDuration: 1.0)
+
+        // Run action that performs the flips and re-enables user interaction
+        let flipAction = SKAction.run { [weak self] in
+            guard let strongSelf = self else {
+                    return
+            }
+
+            strongSelf.resetUnmatchedCards(withGameState: gameState)
+            strongSelf.scene?.view?.isUserInteractionEnabled = true
+        }
+
+        self.run(SKAction.sequence([waitAction, flipAction]))
+    }
+
+    func resetUnmatchedCards(withGameState gameState: GameState) {
+
+        // Go through all of the card nodes and update them according to the model
+        // In a more performance-intensive game we might optimize this
+        // but in this game we're going to keep the logic simple
+        self.cards.forEach { card in
+            guard let cardModel = gameState.card(forIndexPath: card.cardIndex) else {
+                return
+            }
+
+            card.update(withState: cardModel)
+        }
+    }
+}
+
+
+//MARK: - Card layout
+extension PlayFieldNode {
 
     func layout() {
         guard let gameSize = self.gameSize else {
@@ -29,6 +72,7 @@ class PlayFieldNode: SKSpriteNode {
         }
         self.layout(cards: self.cards, gameSize: gameSize)
     }
+
     func layout(cards: [CardNode], gameSize: GameSize) {
 
         guard let scene = self.scene else {

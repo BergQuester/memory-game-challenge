@@ -62,6 +62,7 @@ extension GameViewController: GameSceneDelegate {
             return
         }
 
+        // Create the card nodes that will display in the playfield
         var cardNodes: [CardNode] = []
         self.playField.gameSize = self.gameState?.gameSize
 
@@ -86,43 +87,58 @@ extension GameViewController: GameSceneDelegate {
             return
         }
 
+        print("tapped cardModel: \(cardModel)")
+
+        // Show the face of the tapped card
         cardModel.isFaceUp.toggle()
         self.gameState?.update(card: cardModel, atIndex: card.cardIndex)
         card.update(withState: cardModel)
 
+        // check if the selected card matches the previous selection
         if let attemptedPairIndex = gameState.attemptedPairIndex,
-            var attemptedPair = gameState.card(forIndexPath: attemptedPairIndex) {
+            let attemptedPair = gameState.card(forIndexPath: attemptedPairIndex) {
 
+            // If matched, add to matched card types
+            // Otherwise, reset the unmatched cards in the deck
             if attemptedPair.cardType == cardModel.cardType {
                 self.gameState?.matchedCardTypes.append(cardModel.cardType)
             } else {
-                let waitAction = SKAction.wait(forDuration: 1.0)
-                let flipAction = SKAction.run { [weak self] in
-                    guard let strongSelf = self,
-                        let gameState = strongSelf.gameState else {
-                        return
-                    }
 
-                    strongSelf.playField.cards.forEach { card in
-                        guard var cardModel = gameState.card(forIndexPath: card.cardIndex) else {
-                            return
-                        }
-
-                        if cardModel.isFaceUp && !gameState.matchedCardTypes.contains(cardModel.cardType) {
-                            cardModel.isFaceUp.toggle()
-                            strongSelf.gameState?.update(card: cardModel, atIndex: card.cardIndex)
-                            card.update(withState: cardModel)
-                        }
-                    }
+                if let gameState = self.gameState {
+                    let newState = self.resetUnmatchedCards(withGameState: gameState)
+                    self.gameState = newState
+                    self.playField.prepareResetActions(withGameState: newState)
                 }
-
-                self.playField.run(SKAction.sequence([waitAction, flipAction]))
             }
 
             self.gameState?.attemptedPairIndex = nil
         } else {
             self.gameState?.attemptedPairIndex = card.cardIndex
         }
+    }
+
+    private func resetUnmatchedCards(withGameState gameState: GameState) -> GameState {
+
+        var newState = gameState
+        newState.deck = self.resetUnmatchedCards(inDeck: gameState.deck, andMatches: gameState.matchedCardTypes)
+
+        return newState
+    }
+
+    private func resetUnmatchedCards(inDeck deck: [GameCard], andMatches matches: [CardType]) -> [GameCard] {
+
+        let resetDeck: [GameCard] = deck
+            .map { card in
+                guard !matches.contains(card.cardType) else {
+                    return card
+                }
+
+                var newCard = card
+                newCard.isFaceUp = false
+                return newCard
+        }
+
+        return resetDeck
     }
 }
 
