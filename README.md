@@ -1,6 +1,6 @@
 # memory-game-challenge
 
-I have done a couple of SpriteKit related tutorials in the past, but I haven't done anything on my own. This matching game represents my first attempt at doing a SpriteKit game on my own and represents several hours of learning while coding it. As such, I'm sure there are many breaks from SpriteKit best-practices.
+I have done a couple of SpriteKit related tutorials in the past, but I haven't done anything on my own. This matching game represents my first attempt at doing a SpriteKit game on my own and represents several hours of learning while coding it. As such, I'm sure there are many breaks from SpriteKit best-practices. There are also a few features I would like to add, but at this time do not have time for.
 
 ## Tests
 
